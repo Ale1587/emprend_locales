@@ -1,7 +1,7 @@
 import { check, validationResult } from 'express-validator'
 
 
-import { busquedaUsuario } from '../models/query.js'
+import { busquedaUsuario, crearUsuario } from '../models/query.js'
 
 
 const formularioRegistro = async (req, res) => {
@@ -38,17 +38,32 @@ const registro = async (req, res) => {
         })
     }
 
-        // Verificar que el usuario no este duplicado 
+     // Verificar que el usuario no este duplicado 
         const existeUsuario = await busquedaUsuario(rut)
-        if (!existeUsuario) {
-            res.render('auth/registro', {
-                pagina: 'Crear cuenta',
-                errores: [{msg: 'El Usuario ya está Registrado'}],
-            })
+        console.log(existeUsuario);
+       
+
+        if(existeUsuario) {
+            console.log('aqui no entra');
+            
             return
+        } else {
+            console.log('entra aqui');
+            /* res.render('auth/registro', {
+                pagina: 'Crear cuenta',
+                errores: [{msg: `El Usuario ya está Registrado`}],
+            }) */
         }
 
+        return
 
+    // crear Usuario
+    await crearUsuario(correoElectronico, nombreTienda, nombreEmprendedor, direccionLocal, comuna, rut, contrasena, imagen) 
+
+    res.render('templates/mensaje', {
+        pagina: 'Cuenta creada correctamente',
+        mensaje: 'Su cuenta ha sido creada correctamente'
+    })
     
 
 }
