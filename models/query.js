@@ -9,7 +9,7 @@ const busquedaUsuario = async(rut) =>{
             `SELECT nombre_emprendedor from tiendas WHERE rut = '${rut}'`
         )
 
-        return resultado.rows
+        return resultado.rows[0]
         
     } catch (err) {
         console.log(err.code);

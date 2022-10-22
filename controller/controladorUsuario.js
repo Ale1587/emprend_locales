@@ -39,32 +39,25 @@ const registro = async (req, res) => {
     }
 
      // Verificar que el usuario no este duplicado 
+     console.log(req.body)
         const existeUsuario = await busquedaUsuario(rut)
-        console.log(existeUsuario);
        
 
         if(existeUsuario) {
-            console.log('aqui no entra');
+             res.render('auth/registro', {
+                pagina: 'Crear cuenta',
+                errores: [{msg: `El Usuario ya está Registrado`}],
+            }) 
             
             return
         } else {
-            console.log('entra aqui');
-            /* res.render('auth/registro', {
-                pagina: 'Crear cuenta',
-                errores: [{msg: `El Usuario ya está Registrado`}],
-            }) */
+            await crearUsuario(correoElectronico, nombreTienda, nombreEmprendedor, direccionLocal, comuna, rut, contrasena, imagen) 
+            res.render('templates/mensaje', {
+                pagina: 'Cuenta creada correctamente',
+                mensaje: 'Su cuenta ha sido creada correctamente'
+            })
         }
 
-        return
-
-    // crear Usuario
-    await crearUsuario(correoElectronico, nombreTienda, nombreEmprendedor, direccionLocal, comuna, rut, contrasena, imagen) 
-
-    res.render('templates/mensaje', {
-        pagina: 'Cuenta creada correctamente',
-        mensaje: 'Su cuenta ha sido creada correctamente'
-    })
-    
 
 }
 
