@@ -1,0 +1,28 @@
+extends ../layout/index
+
+block contenido
+        h1(class="mb-4") Inicio de sesión           
+        
+        if errores
+            div(class='')
+                each error in errores
+                    p= error.msg
+
+        div(class='container')
+
+            form(class='d-flex justify-content-center' method='POST')
+                div(class='w-50 mt-5 pt-5')
+                    <!-- Email input -->
+                    div(class="form-outline mb-4")
+                        label(class="form-label" for="email") Correo Electronico
+                        input(type="email" id="email" class="form-control" name="email" placeholder="correo@correo.com")
+                        
+
+                    <!-- Password input -->
+                    div(class="form-outline mb-4")
+                        label(class="form-label" for="password") Password
+                        input(type="password" id="password" class="form-control" name="password" placeholder="Tu Password") 
+
+
+                    <!-- Submit button -->
+                    button(type="submit" class="btn btn-outline-danger btn-block mb-4") Iniciar Sesión

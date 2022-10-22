@@ -1,0 +1,59 @@
+extends ../layout/index
+
+block contenido
+        h1(class="mb-4") Registro de usuario           
+        
+        if errores
+            div(class='')
+                each error in errores
+                    p= error.msg
+
+        div(class='container')
+
+            form(class='d-flex justify-content-center' method='POST' action='/auth/registro')
+                div(class='w-50 mt-5 pt-5')
+
+                    <!-- nombre Tienda -->
+                    div(class="form-outline mb-4")
+                        label(class="form-label" for="nombreTienda") Nombre de la tienda
+                        input(type="text" id="nombreTienda" class="form-control" name="nombreTienda" placeholder="Calzados Sofia")
+                        
+                    <!-- Nombre Emprendedor -->
+                    div(class="form-outline mb-4")
+                        label(class="form-label" for="nombreEmprendedor") Nombre emprendedor
+                        input(type="text" id="nombreEmprendedor" class="form-control" name="nombreEmprendedor" placeholder="Sofía Gallardo") 
+
+                    <!-- Rut Emprendedor -->
+                    div(class="form-outline mb-4")
+                        label(class="form-label" for="rutEmprendedor") Rut del usuario
+                        input(type="text" id="rutEmprendedor" class="form-control" name="rutEmprendedor" placeholder="16163850-5")
+
+                    <!-- Dirección física local -->
+                    div(class="form-outline mb-4")
+                        label(class="form-label" for="direccionLocal") Dirección del Local
+                        input(type="text" id="direccionLocal" class="form-control" name="direccionLocal" placeholder="Calle Magnolia 154, Coquimbo") 
+
+                    <!-- Comuna -->
+                    div(class="form-outline mb-4")
+                        label(class="form-label" for="comuna") Comuna
+                        input(type="text" id="comuna" class="form-control" name="comuna" placeholder="Canela") 
+
+                        
+                    <!-- Email ->
+                    div(class="form-outline mb-4")
+                        label(class="form-label" for="correoElectronico") Correo Electronico
+                        input(type="email" id="correoElectronico" class="form-control" name="correoElectronico" placeholder="correo@correo.com")
+                        
+                    
+                    <!-- Password input -->
+                    div(class="form-outline mb-4")
+                        label(class="form-label" for="constrasena") Contraseña
+                        input(type="password" id="constrasena" class="form-control" name="constrasena" placeholder="Tu contraseña")
+                        
+                    <!-- Repeat Password input -->
+                    div(class="form-outline mb-4")
+                        label(class="form-label" for="contrasenaValidacion") Repite Contraseña
+                        input(type="password" id="contrasenaValidacion" class="form-control" name="contrasenaValidacion" placeholder="Repite tu contraseña")
+
+                    <!-- Submit button -->
+                    button(type="submit" class="btn btn-outline-danger btn-block mb-4") Registrarse
