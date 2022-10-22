@@ -8,7 +8,7 @@ CREATE TABLE tiendas (
     nombre_emprededor VARCHAR(255) NOT NULL,
     dirección VARCHAR(255) NOT NULL,
     comuna VARCHAR(255) NOT NULL,
-    rut VARCHAR(255) NOT NULL,
+    rut VARCHAR(255) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL,
     imagen VARCHAR(255),
 );

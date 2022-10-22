@@ -43,6 +43,12 @@ block contenido
                     div(class="form-outline mb-4")
                         label(class="form-label" for="correoElectronico") Correo Electronico
                         input(type="email" id="correoElectronico" class="form-control" name="correoElectronico" placeholder="correo@correo.cl")
+
+                    <!-- Imagen -->
+                    div(class="form-outline mb-4")
+                        label(class="form-label" for="imagen") Imagen 
+                        input(type="url" id="imagen" name="imagen" class="form-control" placeholder="Ej: https://edit.org/images/cat/logos-big-2019090615.jpg")
+
                         
                     
                     <!-- Password input -->
@@ -54,6 +60,7 @@ block contenido
                     div(class="form-outline mb-4")
                         label(class="form-label" for="contrasenaValidacion") Repite Contraseña
                         input(type="password" id="contrasenaValidacion" class="form-control" name="contrasenaValidacion" placeholder="Repite tu contraseña")
+
 
                     <!-- Submit button -->
                     button(type="submit" class="btn btn-outline-danger btn-block mb-4") Registrarse

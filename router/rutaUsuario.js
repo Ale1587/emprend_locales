@@ -1,7 +1,7 @@
 import express from 'express';
 
 
-import { formularioRegistro, registro } from '../controller/controaldoUsuario.js'
+import { formularioRegistro, registro } from '../controller/controladorUsuario.js'
 
 const router = express.Router();
 

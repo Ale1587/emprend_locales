@@ -1,6 +1,8 @@
 import { check, validationResult } from 'express-validator'
 
 
+import { busquedaUsuario } from '../models/query.js'
+
 
 const formularioRegistro = async (req, res) => {
     res.render('auth/registro', {
@@ -10,7 +12,7 @@ const formularioRegistro = async (req, res) => {
 
 const registro = async (req, res) => {
 
-    const { nombreTienda, nombreEmprendedor, rutEmprendedor, direccionLocal, comuna, correoElectronico, contrasena, contrasenaValidacion } = req.body
+    const { nombreTienda, nombreEmprendedor, rutEmprendedor: rut, direccionLocal, comuna, correoElectronico, contrasena, imagen} = req.body
     
     await check('nombreTienda').notEmpty().withMessage('El campo Nombre de la tienda no puede ir vacio').run(req)
     await check('correoElectronico').isEmail().withMessage('Debe ser un email valido').run(req)
@@ -35,6 +37,16 @@ const registro = async (req, res) => {
             }
         })
     }
+
+        // Verificar que el usuario no este duplicado 
+        const existeUsuario = await busquedaUsuario(rut)
+        if (!existeUsuario) {
+            res.render('auth/registro', {
+                pagina: 'Crear cuenta',
+                errores: [{msg: 'El Usuario ya está Registrado'}],
+            })
+            return
+        }
 
 
     
