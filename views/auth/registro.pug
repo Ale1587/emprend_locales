@@ -4,9 +4,9 @@ block contenido
         h1(class="mb-4") Registro de usuario           
         
         if errores
-            div(class='')
+            div(class="")
                 each error in errores
-                    p= error.msg
+                    p(class="rounded-pill text-center p-3 mb-2 bg-danger text-white")= error.msg
 
         div(class='container')
 
@@ -20,12 +20,12 @@ block contenido
                         
                     <!-- Nombre Emprendedor -->
                     div(class="form-outline mb-4")
-                        label(class="form-label" for="nombreEmprendedor") Nombre emprendedor
+                        label(class="form-label" for="nombreEmprendedor") Nombre del emprendedor
                         input(type="text" id="nombreEmprendedor" class="form-control" name="nombreEmprendedor" placeholder="Sofía Gallardo") 
 
                     <!-- Rut Emprendedor -->
                     div(class="form-outline mb-4")
-                        label(class="form-label" for="rutEmprendedor") Rut del usuario
+                        label(class="form-label" for="rutEmprendedor") Rut del emprendedor
                         input(type="text" id="rutEmprendedor" class="form-control" name="rutEmprendedor" placeholder="16163850-5")
 
                     <!-- Dirección física local -->
@@ -39,16 +39,16 @@ block contenido
                         input(type="text" id="comuna" class="form-control" name="comuna" placeholder="Canela") 
 
                         
-                    <!-- Email ->
+                    <!-- email -->
                     div(class="form-outline mb-4")
                         label(class="form-label" for="correoElectronico") Correo Electronico
-                        input(type="email" id="correoElectronico" class="form-control" name="correoElectronico" placeholder="correo@correo.com")
+                        input(type="email" id="correoElectronico" class="form-control" name="correoElectronico" placeholder="correo@correo.cl")
                         
                     
                     <!-- Password input -->
                     div(class="form-outline mb-4")
-                        label(class="form-label" for="constrasena") Contraseña
-                        input(type="password" id="constrasena" class="form-control" name="constrasena" placeholder="Tu contraseña")
+                        label(class="form-label" for="contrasena") Contraseña
+                        input(type="password" id="contrasena" class="form-control" name="contrasena" placeholder="Tu contraseña")
                         
                     <!-- Repeat Password input -->
                     div(class="form-outline mb-4")
